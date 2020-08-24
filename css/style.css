@@ -187,14 +187,42 @@ table {
 @media screen and (max-width: 759px) {
   .container {
     max-width: 480px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 .container::after, .container::before {
   content: "";
   display: table;
   clear: both;
+}
+
+/*
+O row serve para quando tenho elemento dentro de elemento e preciso que a margem
+se mantenha exata para todos os elementos daquela linha, mesmo existindo elementos
+aninhados em outros.
+*/
+.row {
+  position: relative;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 759px) {
+  .row {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+.row::after, .row::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+div {
+  background: rgba(0, 0, 0, 0.4);
+  min-height: 50px !important;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
