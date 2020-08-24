@@ -31,12 +31,90 @@ $s-device: 480px;
   }
 }
 
-p {
-  color: blue;
+// Função do grid
+
+//offset é o deslocamento para direita + 10px
+@function grid($col, $offset: false) {
+  //cuidado, pois há agora o operador de módulo % no sass
+  //exemplo abaixo: grid 4 / 12 = 0,333333 * 100 = 33,3333%
+  $width: $col / $cols * 100 + "%";
+  $result: calc(#{$width} - #{$gutter});
+  @if $offset == offset {
+    $gutter: $gutter / 2;
+    $result: calc(#{$width} + #{$gutter});
+  }
+  @return $result;
+}
+
+//Gera as classes de grid
+@for $i from 1 through $cols {
+  .grid-#{$i} {
+    width: grid($i);
+  }
+}
+
+//Mixin estrutura de grid
+@mixin grid-structure {
+  float: left;
+  min-height: 1px;
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+  @include d(s) {
+    //vira única coluna no small
+    width: 100%;
+    float: none;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+//seletor especial com ^ para selecionar todas as classes que começam com "grid-"
+//aqui é para evitar criar aquele .grid-1,.grid-2,.grid-3...
+[class^="grid-"] {
+  @include grid-structure;
+}
+
+//Gera as classes de offset
+@for $i from 1 through $cols {
+  .offset-#{$i} {
+    margin-left: grid($i, offset);
+    @extend %offset;
+  }
+}
+
+@include d(s) {
+  //o offset precisa sumir quando vai para o mobile
+  %offset {
+    margin-left: 0px;
+  }
+}
+
+//Mixin de clearfix
+@mixin clearfix {
+  &::after,
+  &::before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//Mixin container
+@mixin container {
+  max-width: $l-device;
+  margin: 0px auto;
+  position: relative;
   @include d(m) {
-    color: pink;
+    max-width: $m-device;
   }
   @include d(s) {
-    color: green;
+    max-width: $s-device;
+    margin-left: 10px;
+    margin-right: 10px;
   }
+  @include clearfix;
+}
+
+.container {
+  @include container;
 }
