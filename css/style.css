@@ -200,7 +200,7 @@ table {
 /*
 O row serve para quando tenho elemento dentro de elemento e preciso que a margem
 se mantenha exata para todos os elementos daquela linha, mesmo existindo elementos
-aninhados em outros.
+aninhados em outros
 */
 .row {
   position: relative;
@@ -220,9 +220,8 @@ aninhados em outros.
 }
 
 div {
-  background: rgba(0, 0, 0, 0.4);
-  min-height: 50px !important;
-  margin-bottom: 20px;
+  font-family: "Aref Ruqaa", serif;
+  font-family: "PT Mono", monospace;
 }
 
 /*# sourceMappingURL=style.css.map */

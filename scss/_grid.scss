@@ -124,7 +124,7 @@ $s-device: 480px;
 /*
 O row serve para quando tenho elemento dentro de elemento e preciso que a margem
 se mantenha exata para todos os elementos daquela linha, mesmo existindo elementos
-aninhados em outros.
+aninhados em outros
 */
 @mixin row {
   position: relative;
@@ -139,10 +139,4 @@ aninhados em outros.
 
 .row {
   @include row;
-}
-
-div {
-  background: rgba(0, 0, 0, 0.4);
-  min-height: 50px !important;
-  margin-bottom: 20px;
 }
