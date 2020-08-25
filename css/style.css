@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -334,5 +335,75 @@ p {
   border: 10px solid #cbc6b9;
   width: 100%;
 }
+
+.menu {
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+@media screen and (max-width: 759px) {
+  .menu {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+.menu-item {
+  margin-bottom: 60px;
+}
+.menu-item h2 {
+  font-family: "Aref Ruqaa", serif;
+  font-size: 1.5em;
+  line-height: 1.25em;
+  margin-bottom: 1em;
+}
+.menu-item li {
+  font-family: "PT Mono", monospace;
+  font-size: 1.125em;
+  line-height: 1.6666666667em;
+  line-height: 1.9444444444em;
+}
+.menu-item li span {
+  font-family: "Aref Ruqaa", serif;
+  color: #988c77;
+  display: inline-block;
+  width: 70px;
+  text-align: right;
+  margin-right: 10px;
+  margin-left: -80px;
+}
+@media screen and (max-width: 759px) {
+  .menu-item li span {
+    margin-left: 0px;
+    width: auto;
+  }
+}
+.menu-item img {
+  border-radius: 50%;
+  border: 10px solid #cbc6b9;
+  position: absolute;
+  right: 0px;
+  margin-top: 50px;
+}
+@media screen and (min-width: 1200px) {
+  .menu-item img {
+    right: 120px;
+  }
+}
+@media screen and (max-width: 759px) {
+  .menu-item img {
+    width: 120px;
+    margin-top: 0px;
+  }
+}
+
+/* 
+
+Obs: lembre-se que o SASS é para facilitar a vida. Veja em que ele pode te ajudar e não
+se preocupe em achar que precisa usar tudo o que a tecnologia oferece. Use o que mais
+pode lhe ser útil, como por exemplo deste projeto: a criação do Grid, de variáveis
+globais para cores, mixins de fontes, responsividade e divisão de arquivos CSS.
+-> A tecnologia é um meio. Lembre-se.
+
+*/
 
 /*# sourceMappingURL=style.css.map */
